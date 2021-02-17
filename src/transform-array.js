@@ -14,7 +14,7 @@ module.exports = function transform(arr) {
         break;
 
         case "--double-prev" :
-        strArray.push( strArray (strArray.length-1));
+        strArray.push( strArray[strArray.length-1]);
         break;
 
         case "--discard-prev" :
