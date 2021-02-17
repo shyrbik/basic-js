@@ -5,10 +5,7 @@ module.exports = function transform(arr) {
 
   for (let i = 0; i < arr.length; i++) {
 
-    if ((i == (arr.length)) || (i == 0)  ) delimiter = "";
-    else delimiter = ", ";
-
-    switch (arr[i]){
+      switch (arr[i]){
       case "--double-next" :
         strArray.push(arr[i + 1]);
         break;
