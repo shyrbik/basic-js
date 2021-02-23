@@ -7,26 +7,24 @@ module.exports = function getSeason(date) {
 }
   else {
   let countMonth = 0;
-  
+
   try {
   countMonth = date.getMonth();
   }
   catch (e) {
     throw new Error(e);
   }
-    
 //Метод getMonth() возвращает месяц указанной даты по местному времени,
 //нумерация месяцев начинается с нуля для первого месяца в году.
 
-if (nameOfSeason <= 1 || nameOfSeason == 11)
+if (countMonth <= 1 || countMonth == 11)
   nameOfSeason = "winter";
-if (nameOfSeason > 1 && nameOfSeason <= 4)
+if (countMonth > 1 && countMonth <= 4)
   nameOfSeason = "spring";
-if (nameOfSeason > 4 && nameOfSeason <= 7)
+if (countMonth > 4 && countMonth <= 7)
   nameOfSeason = "summer";
-if (nameOfSeason > 7 && nameOfSeason <= 10)
+if (countMonth > 7 && countMonth <= 10)
   nameOfSeason = "autumn";
-
   }
 
 return nameOfSeason;
