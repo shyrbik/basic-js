@@ -7,7 +7,10 @@ module.exports = function getSeason(date) {
 }
   else {
   let countMonth = 0;
-
+    
+  if(isNaN(date))
+    throw new Error();
+    
   try {
   countMonth = date.getMonth();
   }
