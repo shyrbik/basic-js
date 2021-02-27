@@ -38,5 +38,4 @@ module.exports = function transform(arr) {
 
   return strArray;
 };
- 
-};
+
