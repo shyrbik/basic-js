@@ -1,24 +1,32 @@
 const CustomError = require("../extensions/custom-error");
 
+
 module.exports = function transform(arr) {
     let strArray = [];
+
+    if (!Array.isArray(arr)) throw Error;
 
   for (let i = 0; i < arr.length; i++) {
 
       switch (arr[i]){
-      case "--double-next" :
-        strArray.push(arr[i + 1]);
+        case "--double-next" :
+          if(arr[i + 1] !== undefined)
+          strArray.push(arr[i + 1]);
         break;
 
-        case "--discard-next" : i++;
+        case "--discard-next" :
+          if(arr[i + 1] !== undefined)
+            i++;
         break;
 
         case "--double-prev" :
-        strArray.push( strArray[strArray.length-1]);
+          if(arr[i - 1] !== undefined && arr[i - 2] !== "--discard-next")
+            strArray.push( strArray[i-1]);
         break;
 
         case "--discard-prev" :
-        strArray.pop();
+          if(arr[i - 1] !== undefined && arr[i - 2] !== "--discard-next")
+            strArray.pop();
         break;
 
         default :
@@ -29,9 +37,6 @@ module.exports = function transform(arr) {
   }
 
   return strArray;
-
-  
-  
-  
-  
+};
+ 
 };
